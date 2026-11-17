@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Special Celebration — Birthday Invitation</title>
+  <!-- Font Klasik Undangan Pernikahan -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hiasan Sulur Daun Halus di Sudut Layar (SVG Vektor) -->
+  <svg class="botanical-tl" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 190C30 120 80 50 180 15" stroke="#C5A059" stroke-width="0.8" stroke-opacity="0.35"/>
+    <path d="M55 110C40 95 45 75 65 70C65 90 60 102 55 110Z" fill="#C5A059" fill-opacity="0.18"/>
+    <path d="M95 68C80 53 85 33 105 28C105 48 100 60 95 68Z" fill="#C5A059" fill-opacity="0.18"/>
+    <path d="M72 95C90 92 105 102 102 118C85 114 76 104 72 95Z" fill="#C5A059" fill-opacity="0.18"/>
+    <path d="M120 48C138 45 153 55 150 71C133 67 124 57 120 48Z" fill="#C5A059" fill-opacity="0.18"/>
+  </svg>
+
+  <svg class="botanical-br" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M190 10C170 80 120 150 20 185" stroke="#C5A059" stroke-width="0.8" stroke-opacity="0.35"/>
+    <path d="M145 90C160 105 155 125 135 130C135 110 140 98 145 90Z" fill="#C5A059" fill-opacity="0.18"/>
+    <path d="M105 132C120 147 115 167 95 172C95 152 100 140 105 132Z" fill="#C5A059" fill-opacity="0.18"/>
+    <path d="M128 105C110 108 95 98 98 82C115 86 124 96 128 105Z" fill="#C5A059" fill-opacity="0.18"/>
+  </svg>
+
+  <!-- Pemutar Musik -->
+  <audio id="bg-music" loop>
+    <source src="assets/lagu.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- TAMPILAN 1: AMPLOP UNDANGAN ELEGAN -->
+  <div class="envelope-wrapper" id="envelope-wrapper">
+    <p class="top-subtitle">THE CELEBRATION OF</p>
+    
+    <div class="envelope" id="envelope">
+      <!-- Bingkai Garis Emas Tipis -->
+      <div class="luxury-border"></div>
+      
+      <!-- Tutup Atas -->
+      <div class="flap"></div>
+      
+      <!-- Lipatan Kertas Samping & Bawah -->
+      <div class="pocket-left"></div>
+      <div class="pocket-right"></div>
+      <div class="pocket-bottom"></div>
+
+      <!-- Lembar Undangan di Dalam yang Menyembul -->
+      <div class="letter-preview">
+        <div class="inner-frame">
+          <span class="mini-tag">SPECIAL EDITION</span>
+          <h1 class="calligraphy">Happy Birthday</h1>
+          <div class="divider-gold"></div>
+          <p>Sebuah untaian doa & kenangan untuk hari istimewamu</p>
+          <p>──୨ৎ 18 November 2026 ୨ৎ──</p>
+        </div>
+      </div>
+
+      <!-- Plat Nama Penerima -->
+      <div class="recipient-plate">
+        <span class="to-text">Kepada Yth.</span>
+        <strong class="recipient-name">Sulaiman ❤︎</strong>
+      </div>
+
+      <!-- Segel Lilin (Wax Seal) Monogram -->
+      <div class="wax-seal" id="open-btn">
+        <div class="wax-inner">
+          <span>OPEN</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="hint">Ketuk segel lilin untuk membuka undangan</p>
+  </div>
+
+  <!-- TAMPILAN 2: KARTU UNDANGAN & 3 TAB -->
+  <div class="card-container hidden" id="card-container">
+    <!-- Bar Musik Minimalis -->
+    <div class="card-topbar">
+      <div class="music-status-wrap">
+        <span class="music-dot" id="music-dot"></span>
+        <span id="song-status">Alunan Musik Mengiringi</span>
+      </div>
+      <button id="music-toggle">Jeda Musik</button>
+    </div>
+
+    <!-- Header Judul Undangan -->
+    <div class="invitation-banner">
+      <span class="banner-sub">CELEBRATION</span>
+      <h1 class="banner-title">Happy Birthday Sayang</h1>
+    </div>
+
+    <!-- Navigasi 3 Tab Klasik -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="ucapan">Wishes</button>
+      <button class="tab-btn" data-tab="galeri">Memories</button>
+      <button class="tab-btn" data-tab="harapan">Hope</button>
+    </div>
+
+    <!-- Area Konten dengan Bingkai Halus -->
+    <div class="tab-body">
+      <!-- TAB 1: WISHES -->
+      <div class="tab-content active" id="ucapan">
+        <div class="editorial-photo">
+          <img src="assets/foto1.png" alt="Potret Spesial">
+        </div>
+
+        <h2 class="section-heading">Selamat Bertambah Usia Love</h2>
+        <div class="ornament-line"><span>✦</span></div>
+
+        <p class="drop-cap">
+          Hallo Kesayanganku... Hari ini menjadi penanda satu babak baru dalam perjalanan hidupmu. Selamat ulang tahun, untuk seseorang yang kehadirannya adalah puisi terindah yang pernah Tuhan tuliskan dalam hidupku.
+        </p>
+        <p>
+          Hari ini, langit seolah ikut merayakan, karena pada tanggal ini, bertahun-tahun lalu, seseorang yang akan menjadi rumah bagiku telah lahir. Semoga usiamu menjadi bait-bait doa yang terkabul satu per satu. Semoga langkahmu selalu dipayungi keberkahan, dan hatimu selalu dijaga dari segala luka.
+        </p>
+        <p>
+          Dan jika nanti dunia terasa berat, ingatlah, kamu tidak pernah berjalan sendiri. Ada aku, yang akan selalu menjadi koma di setiap kalimat hidupmu, bukan titik yang mengakhiri.
+        </p>
+
+        <div class="signature-area">
+          <span class="regards">Dengan penuh ketulusan,</span>
+          <p class="sign-name">Dfbr23</p>
+        </div>
+      </div>
+
+      <!-- TAB 2: GALERI FOTO EDITORIAL (10 FOTO) -->
+      <div class="tab-content" id="galeri">
+        <h2 class="section-heading">Potret Kenangan</h2>
+        <div class="ornament-line"><span>✦</span></div>
+        <p class="section-desc">Ketuk pada bingkai foto untuk melihat ukuran penuh.</p>
+        
+        <div class="gallery-masonry">
+          <div class="frame-card" onclick="openLightbox(this)">
+            <div class="img-box">
+              <img src="assets/foto2.jpg" alt="Kenangan 1">
+            </div>
+            <span class="caption">First Birthday celebration in 18 November 2017</span>
+          </div>
+
+          <div class="frame-card" onclick="openLightbox(this)">
+            <div class="img-box">
+              <img src="assets/foto3.jpg" alt="Kenangan 2">
+            </div>
+            <span class="caption">Birthday Celebration in 18 November 2022</span>
+          </div>
+
+          <div class="frame-card" onclick="openLightbox(this)">
+            <div class="img-box">
+              <img src="assets/foto4.jpg" alt="Kenangan 3">
+            </div>
+            <span class="caption">Birthday Celebration in 18 November 2024</span>
+          </div>
+
+          <div class="frame-card" onclick="openLightbox(this)">
+            <div class="img-box">
+              <img src="assets/foto5.jpg" alt="Kenangan 4">
+            </div>
+            <span class="caption">Aku, kamu, dan suara ombak yang menenangkan</span>
+          </div>
+
+          <div class="frame-card" onclick="openLightbox(this)">
+            <div class="img-box">
+              <img src="assets/foto6.jpg" alt="Kenangan 5">
+            </div>
+            <span class="caption">Dua hati, satu bingkai, dan ribuan cerita ke depannya</span>
+          </div>
+
+          <div class="frame-card" onclick="openLightbox(this)">
+            <div class="img-box">
+              <img src="assets/foto7.jpg" alt="Kenangan 6">
+            </div>
+            <span class="caption">Memories of graduation in 2021</span>
+          </div>
+
+          <div class="frame-card" onclick="openLightbox(this)">
+            <div class="img-box">
+              <img src="assets/foto8.jpg" alt="Kenangan 7">
+            </div>
+            <span class="caption">First Konser bareng ♡ྀི</span>
+          </div>
+
+          <div class="frame-card" onclick="openLightbox(this)">
+            <div class="img-box">
+              <img src="assets/foto9.jpg" alt="Kenangan 8">
+            </div>
+            <span class="caption">Dua makhluk gemas terperangkap di dalam kaca >ᴗ<</span>
+          </div>
+
+          <div class="frame-card" onclick="openLightbox(this)">
+            <div class="img-box">
+              <img src="assets/foto10.jpg" alt="Kenangan 9">
+            </div>
+            <span class="caption">Dua orang, satu pandangan, dan ribuan cerita</span>
+          </div>
+
+          <div class="frame-card" onclick="openLightbox(this)">
+            <div class="img-box">
+              <img src="assets/foto11.jpg" alt="Kenangan 10">
+            </div>
+            <span class="caption">Gelapnya malam, dinginnya angin laut, dan hangatnya genggamanmu</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: HARAPAN & DOA -->
+      <div class="tab-content" id="harapan">
+        <h2 class="section-heading">Untaian Doa & Harapan</h2>
+        <div class="ornament-line"><span>✦</span></div>
+        <p class="section-desc">Doa-doa terbaik yang menyertai langkahmu di tahun ini:</p>
+        
+        <div class="vows-list">
+          <div class="vow-item">
+            <span class="roman-num"></span>
+            <div>
+              <p>Hallo My Fav Person♡ Selamat bertambah usia sayang, Semoga kamu selalu diberi kesehatan, rezeki yang lancar, dan kesabaran ekstra menghadapi sikapku yang kadang menyebalkan ini. Dan semoga, di antara semua rencana masa depanmu, namaku sudah resmi masuk di daftar paling atas tanpa perlu revisi lagi.</p>
+              <p>Kadang aku suka mikir, beruntung banget rasanya bisa ketemu dan jalan bareng sama kamu sampai di titik ini. Di tengah sibuknya aktivitas dan capeknya urusan masing-masing, kamu selalu berhasil jadi tempat paling nyaman buat aku pulang dan cerita. Terima kasih sayang sudah selalu sabar, mau ngertiin, dan tetap bertahan di sampingku, bahkan di saat aku lagi ribet atau nyebelin.</p>
+              <p>Semoga semesta selalu mempermudah langkah kita ya, biar pelan-pelan kita bisa naik level. Dari yang sekarang masih sering pusing mikirin "hari ini mau makan di mana?", sampai nanti tiba waktunya kita pusing milih warna cat ruang tamu dan ngitungin daftar tamu undangan. Sehat-sehat terus ya kesayangan, mari kita perjuangkan masa depan yang lebih jelas bareng-bareng!</p>
+              <p>I Love U Lemonteaku ❣︎ </p>
+              <p>─── 18 November 2026 ───</p>
+            </div>
+          </div>
+        </div>
+
+  <!-- Modal Lightbox Bersih -->
+  <div class="lightbox hidden" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-inner">
+      <img id="lightbox-img" src="" alt="Preview">
+      <p id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- Library Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

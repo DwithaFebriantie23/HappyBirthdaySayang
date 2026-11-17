@@ -1,0 +1,713 @@
+:root {
+  --bg-ivory: #f9f6f0;
+  --paper-cream: #fffdf9;
+  --envelope-champagne: #eadfce;
+  --envelope-flap: #e2d3be;
+  --envelope-shadow: #d5c3ab;
+  --gold-primary: #b89146;
+  --gold-light: #d6b672;
+  --gold-dark: #8c6a2b;
+  --text-charcoal: #2e2a27;
+  --text-muted: #756d65;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: radial-gradient(circle at center, #fcfaf5 0%, #f2ebe0 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+  color: var(--text-charcoal);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* --- ORNAMEN SULUR DAUN SUDUT LAYAR --- */
+.botanical-tl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 240px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.botanical-br {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 240px;
+  height: 240px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --- AMPLOP UNDANGAN PERNIKAHAN MEWAH --- */
+.envelope-wrapper {
+  text-align: center;
+  width: 100%;
+  max-width: 370px;
+  z-index: 3;
+}
+
+.top-subtitle {
+  font-size: 0.68rem;
+  letter-spacing: 4px;
+  color: var(--gold-dark);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 470px;
+  background: var(--envelope-champagne);
+  border-radius: 6px;
+  box-shadow: 0 24px 55px rgba(72, 58, 42, 0.16), 0 2px 8px rgba(72, 58, 42, 0.08);
+  margin: 0 auto;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.envelope:hover {
+  transform: translateY(-3px);
+}
+
+/* Bingkai Garis Emas Tipis di Dalam Amplop */
+.luxury-border {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(184, 145, 70, 0.45);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Tutup Atas Amplop */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 245px;
+  background: linear-gradient(180deg, #dfd0ba 0%, #e8dbc8 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 6;
+  filter: drop-shadow(0 5px 8px rgba(65, 50, 35, 0.12));
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+/* Lipatan Samping & Bawah */
+.pocket-left {
+  position: absolute;
+  inset: 0;
+  background: #e5d7c3;
+  clip-path: polygon(0 0, 51% 52%, 0 100%);
+  z-index: 3;
+  transition: opacity 0.6s ease 0.2s;
+}
+
+.pocket-right {
+  position: absolute;
+  inset: 0;
+  background: #dfd0ba;
+  clip-path: polygon(100% 0, 49% 52%, 100% 100%);
+  z-index: 3;
+  transition: opacity 0.6s ease 0.2s;
+}
+
+.pocket-bottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #ede3d3 0%, #e3d4be 100%);
+  clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+  z-index: 4;
+  filter: drop-shadow(0 -3px 8px rgba(65, 50, 35, 0.08));
+  transition: opacity 0.6s ease 0.2s;
+}
+
+/* Meredupkan lipatan amplop saat terbuka agar fokus ke tulisan di tengah */
+.envelope.open .pocket-left,
+.envelope.open .pocket-right,
+.envelope.open .pocket-bottom {
+  opacity: 0.3;
+}
+
+/* Lembar Undangan di Dalam Amplop */
+.letter-preview {
+  position: absolute;
+  top: 26px;
+  left: 22px;
+  right: 22px;
+  height: 390px;
+  background: var(--paper-cream);
+  padding: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  transition: all 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+  z-index: 2;
+}
+
+.inner-frame {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(184, 145, 70, 0.45);
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mini-tag {
+  font-size: 0.65rem;
+  letter-spacing: 3.5px;
+  color: var(--gold-primary);
+  margin-bottom: 10px;
+}
+
+.calligraphy {
+  font-family: 'Alex Brush', cursive;
+  font-size: 2.85rem;
+  font-weight: 400;
+  color: var(--text-charcoal);
+  line-height: 1.15;
+}
+
+.divider-gold {
+  width: 50px;
+  height: 1px;
+  background: var(--gold-primary);
+  margin: 14px 0;
+}
+
+.inner-frame p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* SAAT AMPLOP TERBUKA: Kartu maju ke depan & berada tepat di tengah */
+.envelope.open .letter-preview {
+  top: 20px;
+  left: 16px;
+  right: 16px;
+  height: 430px;
+  transform: translateY(0) scale(1.01);
+  box-shadow: 0 20px 45px rgba(55, 42, 28, 0.22);
+  z-index: 10;
+}
+
+/* Plat Nama Penerima di Bawah Amplop */
+.recipient-plate {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--paper-cream);
+  border: 1px solid rgba(184, 145, 70, 0.55);
+  outline: 3px solid var(--paper-cream);
+  padding: 12px 26px;
+  z-index: 7;
+  min-width: 220px;
+  box-shadow: 0 6px 18px rgba(65, 50, 35, 0.08);
+  transition: opacity 0.35s ease;
+}
+
+.to-text {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.recipient-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text-charcoal);
+}
+
+.envelope.open .recipient-plate {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Segel Lilin Emas Antik (Wax Seal) */
+.wax-seal {
+  position: absolute;
+  top: 205px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 72px;
+  background: radial-gradient(circle at 35% 30%, #dfc07c 0%, #b89146 65%, #8f6d2c 100%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(68, 50, 22, 0.28), inset 0 2px 4px rgba(255, 255, 255, 0.45);
+  z-index: 8;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.wax-inner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 248, 230, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wax-inner span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fffdf7;
+}
+
+.wax-seal:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+.envelope.open .wax-seal {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hint {
+  margin-top: 18px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.98rem;
+  color: var(--text-muted);
+}
+
+/* --- TAMPILAN KARTU UTAMA (EDITORIAL LUXURY) --- */
+.card-container {
+  background: var(--paper-cream);
+  width: 100%;
+  max-width: 660px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(184, 145, 70, 0.45);
+  box-shadow: 0 25px 65px rgba(55, 44, 32, 0.14);
+  position: relative;
+  z-index: 5;
+  animation: fadeAppear 0.8s ease;
+}
+
+@keyframes fadeAppear {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Bar Musik Minimalis */
+.card-topbar {
+  background: #f6f0e6;
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(184, 145, 70, 0.25);
+}
+
+.music-status-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.music-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--gold-primary);
+  border-radius: 50%;
+  animation: pulseDot 1.6s infinite;
+}
+
+.music-dot.paused {
+  animation: none;
+  opacity: 0.4;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+
+#music-toggle {
+  background: transparent;
+  color: var(--gold-dark);
+  border: 1px solid var(--gold-primary);
+  padding: 5px 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#music-toggle:hover {
+  background: var(--gold-primary);
+  color: #fff;
+}
+
+/* Banner Judul */
+.invitation-banner {
+  text-align: center;
+  padding: 26px 20px 18px 20px;
+  background: var(--paper-cream);
+}
+
+.banner-sub {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 3.5px;
+  color: var(--gold-primary);
+  margin-bottom: 4px;
+}
+
+.banner-title {
+  font-family: 'Alex Brush', cursive;
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--text-charcoal);
+  line-height: 1.1;
+}
+
+/* Navigasi 3 Tab Elegan */
+.tabs {
+  display: flex;
+  border-top: 1px solid rgba(184, 145, 70, 0.25);
+  border-bottom: 1px solid rgba(184, 145, 70, 0.25);
+  background: #faf6ef;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 14px 10px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  color: var(--gold-dark);
+  border-bottom-color: var(--gold-primary);
+  background: var(--paper-cream);
+  font-weight: 600;
+}
+
+/* Area Isi Kartu */
+.tab-body {
+  overflow-y: auto;
+  padding: 32px 36px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeContent 0.5s ease;
+}
+
+@keyframes fadeContent {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.85rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-charcoal);
+  letter-spacing: 0.5px;
+}
+
+.ornament-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px auto 22px auto;
+  width: 180px;
+}
+
+.ornament-line::before,
+.ornament-line::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(184, 145, 70, 0.5);
+}
+
+.ornament-line span {
+  color: var(--gold-primary);
+  font-size: 0.75rem;
+}
+
+.section-desc {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+/* Foto Utama Editorial */
+.editorial-photo {
+  padding: 10px;
+  border: 1px solid rgba(184, 145, 70, 0.4);
+  background: #fff;
+  margin-bottom: 26px;
+}
+
+.editorial-photo img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.tab-content p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.18rem;
+  line-height: 1.85;
+  color: #3a3531;
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+/* Huruf Awal Besar (Drop Cap ala Majalah/Undangan Klasik) */
+.drop-cap::first-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.2rem;
+  font-weight: 600;
+  float: left;
+  line-height: 0.85;
+  padding-right: 10px;
+  padding-top: 4px;
+  color: var(--gold-primary);
+}
+
+.signature-area {
+  margin-top: 32px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(184, 145, 70, 0.25);
+  text-align: right;
+}
+
+.regards {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.sign-name {
+  font-family: 'Alex Brush', cursive;
+  font-size: 1.9rem !important;
+  color: var(--gold-dark) !important;
+  text-align: right !important;
+  margin-top: 4px;
+  margin-bottom: 0 !important;
+}
+
+/* --- GALERI BINGKAI KLASIK (UKURAN SERAGAM LANDSCAPE & PORTRAIT) --- */
+.gallery-masonry {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolom rapi & simetris */
+  gap: 18px;
+}
+
+.frame-card {
+  background: #fff;
+  padding: 10px 10px 14px 10px;
+  border: 1px solid rgba(184, 145, 70, 0.35);
+  box-shadow: 0 6px 18px rgba(60, 48, 35, 0.05);
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.frame-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(60, 48, 35, 0.1);
+}
+
+/* Kotak foto dikunci rasio 1:1 (persegi) agar landscape & portrait sama besar */
+.img-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background: #f5efe6;
+}
+
+.frame-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Fokus titik tengah sedikit ke atas (25%) agar wajah pada foto portrait tidak terpotong */
+  object-position: center 25%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.frame-card:hover img {
+  transform: scale(1.05);
+}
+
+.caption {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+/* Responsif untuk layar HP kecil */
+@media (max-width: 480px) {
+  .gallery-masonry {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .frame-card {
+    padding: 8px 8px 12px 8px;
+  }
+}
+
+/* --- DAFTAR HARAPAN ANGKA ROMAWI --- */
+.vows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.vow-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 18px 20px;
+  background: #faf6ef;
+  border-left: 2px solid var(--gold-primary);
+}
+
+.roman-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  min-width: 28px;
+}
+
+.vow-item h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-charcoal);
+  margin-bottom: 4px;
+}
+
+.vow-item p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  text-align: left;
+  margin-bottom: 0;
+  color: var(--text-muted);
+}
+
+/* --- LIGHTBOX --- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 24, 20, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  z-index: 100;
+  cursor: zoom-out;
+}
+
+.lightbox-inner {
+  background: var(--paper-cream);
+  padding: 14px 14px 20px 14px;
+  border: 1px solid var(--gold-primary);
+  max-width: 90%;
+  text-align: center;
+}
+
+.lightbox-inner img {
+  max-width: 100%;
+  max-height: 72vh;
+  display: block;
+}
+
+.lightbox-inner p {
+  margin-top: 14px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--text-charcoal);
+}
+
+@media (max-width: 480px) {
+  .tab-body {
+    padding: 24px 20px;
+  }
+  .banner-title {
+    font-size: 2.5rem;
+  }
+}
